@@ -28,15 +28,14 @@ code {
   float: left;
   width: 30%;
   max-width: 256px;
-  /* padding: 10px; */
   height: 100%; 
   background-color: rgb(209, 112, 112);
 }
 
 .column2 {
+
   float: left;
   width: 70%;
-  padding: 10px;
   height: 100%; 
   background-color: rgb(75, 19, 19);
   
@@ -54,10 +53,6 @@ code {
   background-color: rgb(245, 222, 12);
   background: url(./tileset/tileset.png) no-repeat 0px 0px;
   background-size: 1536px;
-  /* position: 'absolute';
-  top: 0;
-  left:0;
-  z-index: 100; */
 }
 
 .spriteSetArea_B {

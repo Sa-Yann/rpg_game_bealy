@@ -14,6 +14,7 @@ const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, cla
     const height = 320
     const width = 256
 
+    
     const cases = []
     // each cases is having an id
     let id = 0 

@@ -4,7 +4,11 @@ import useStripeButtonArea from './useStripeButtonArea';
 import StripeTopicListArea from './StripeTopicListArea';
 
 
-function StripeArea() {
+interface IPropss {
+    spriteSet: string
+}
+
+const StripeArea: React.FC<IPropss> = ({spriteSet}) => {
 
     const {render,classBtn_A, classBtn_B, classBtn_C, classBtn_D} = useStripeButtonArea()
     
@@ -15,7 +19,7 @@ function StripeArea() {
         }}
         >
             <StripeSetArea 
-                {...{classBtn_A, classBtn_B, classBtn_C, classBtn_D}}
+                {...{classBtn_A, classBtn_B, classBtn_C, classBtn_D, spriteSet}}
             />
             {render}
             <StripeTopicListArea /> 
