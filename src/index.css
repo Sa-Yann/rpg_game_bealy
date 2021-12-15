@@ -1,0 +1,106 @@
+body {
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.windowSize {
+  padding: 10px;
+  height: 550px;
+  width: 900px;
+  background-color: brown;
+  /* background: url(./tileset/tileset.png) no-repeat 0px 0px; */
+}
+
+.column1 {
+  float: left;
+  width: 30%;
+  max-width: 256px;
+  /* padding: 10px; */
+  height: 100%; 
+  background-color: rgb(209, 112, 112);
+}
+
+.column2 {
+  float: left;
+  width: 70%;
+  padding: 10px;
+  height: 100%; 
+  background-color: rgb(75, 19, 19);
+  
+}
+
+.spriteSetArea {
+  height: 320px;
+  background-color: rgb(245, 222, 12);
+  background: url(./tileset/tileset.png) no-repeat 0px 0px;
+  background-size: 1536px;
+}
+
+.spriteSetArea_A {
+  height: 60%;
+  background-color: rgb(245, 222, 12);
+  background: url(./tileset/tileset.png) no-repeat 0px 0px;
+  background-size: 1536px;
+}
+
+.spriteSetArea_B {
+  height: 60%;
+  background-color: rgb(245, 222, 12);
+  background: url(./tileset/tileset.png) no-repeat -256px 0px;
+  background-size: 1536px;
+}
+
+.spriteSetArea_C {
+  height: 60%;
+  background-color: rgb(245, 222, 12);
+  background: url(./tileset/tileset.png) no-repeat -512px 0px;
+  background-size: 1536px;
+}
+
+.spriteSetArea_D {
+  height: 60%;
+  background-color: rgb(245, 222, 12);
+  background: url(./tileset/tileset.png) no-repeat -768px 0px;
+  background-size: 1536px;
+}
+
+.spriteButtonArea {
+  height: 10%;
+  background-color: rgb(110, 107, 73);
+}
+
+.spriteListArea {
+  height: 30%;
+  background-color: rgb(184, 182, 171);
+}
+
+.btn {
+  height: 20px;
+  width: 20px;
+  background: whitesmoke;
+  border: 1px black solid;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* .spriteButtonArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
