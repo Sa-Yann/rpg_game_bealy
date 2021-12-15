@@ -9,8 +9,14 @@ function StripeArea() {
     const {render,classBtn_A, classBtn_B, classBtn_C, classBtn_D} = useStripeButtonArea()
     
     return (
-        <div className='column1'>
-            <StripeSetArea {...{classBtn_A, classBtn_B, classBtn_C, classBtn_D}}/>
+        <div className='column1'
+        style={{
+            position: 'relative'
+        }}
+        >
+            <StripeSetArea 
+                {...{classBtn_A, classBtn_B, classBtn_C, classBtn_D}}
+            />
             {render}
             <StripeTopicListArea /> 
         </div>

@@ -11,7 +11,25 @@ interface IProps {
 
 const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, classBtn_D}) => {
 
-      
+    const height = 320
+    const width = 256
+
+    const cases = []
+    // each cases is having an id
+    let id = 0 
+
+    for (let y = 0; y < height; y = y + 32) {
+        const row = [];
+        for (let x = 0; x < width; x = x + 32) {
+            row.push({
+                x, y, id: id++
+            })
+        }
+        cases.push(row);
+        
+    }
+    console.log(cases)
+
 
     return (
         
@@ -37,6 +55,40 @@ const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, cla
             <p>classBtn_B: {classBtn_B}</p>
             <p>classBtn_C: {classBtn_C}</p>
             <p>classBtn_D: {classBtn_D}</p> */}
+            <div
+            style={{
+                position: 'absolute',
+                top: 0,
+                left:0,
+                zIndex: 100
+            }}   
+            >
+            {
+                cases.map((row,y) => 
+                    <div
+                        style={{
+                            display: 'flex',
+                        }}
+                    >
+                        {
+                            row.map((tile, x) => 
+                                <div
+                                    style={{
+                                        borderTop: '1px black solid',
+                                        borderRight: '1px black solid',
+                                        
+                                        width: 32,
+                                        height: 32,
+                                    }}
+                                />
+                               
+                            ) 
+                        }
+                    </div>
+                )
+            }
+            </div>
+            
             
             
             

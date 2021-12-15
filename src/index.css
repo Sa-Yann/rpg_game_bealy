@@ -54,6 +54,10 @@ code {
   background-color: rgb(245, 222, 12);
   background: url(./tileset/tileset.png) no-repeat 0px 0px;
   background-size: 1536px;
+  /* position: 'absolute';
+  top: 0;
+  left:0;
+  z-index: 100; */
 }
 
 .spriteSetArea_B {
@@ -61,6 +65,7 @@ code {
   background-color: rgb(245, 222, 12);
   background: url(./tileset/tileset.png) no-repeat -256px 0px;
   background-size: 1536px;
+
 }
 
 .spriteSetArea_C {
