@@ -66,6 +66,7 @@ function GameWindow() {
                 mapSize={mapSize}
                 usedTile={usedTile}
                 setTiles={setTiles}
+                
             />
         </div>
     )

@@ -7,14 +7,20 @@ interface IProps {
     classBtn_B:string
     classBtn_C:string
     classBtn_D:string
+    spriteSet: string
+    usedTile: {
+        x:number
+        y:number
+    }
+    setUsedTile:any
 }
 
-const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, classBtn_D}) => {
+const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, classBtn_D, spriteSet, usedTile, setUsedTile}) => {
 
     const height = 320
     const width = 256
 
-    
+
     const cases = []
     // each cases is having an id
     let id = 0 
@@ -29,7 +35,7 @@ const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, cla
         cases.push(row);
         
     }
-    console.log(cases)
+    // console.log(cases)
 
 
     return (
@@ -56,6 +62,17 @@ const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, cla
             <p>classBtn_B: {classBtn_B}</p>
             <p>classBtn_C: {classBtn_C}</p>
             <p>classBtn_D: {classBtn_D}</p> */}
+            
+            <div //Sprite
+                style={{
+                    // borderTop: '1px black solid',
+                    // borderRight: '1px black solid',
+                    backgroundPosition: ` -${usedTile.x} px -${usedTile.y}`,
+                    width: 32,
+                    height: 32,
+                }}
+            />
+
             <div
             style={{
                 position: 'absolute',
@@ -74,10 +91,11 @@ const StripeSetArea: React.FC<IProps> =({classBtn_A, classBtn_B, classBtn_C, cla
                         {
                             row.map((tile, x) => 
                                 <div
+                                onClick={() => setUsedTile({ x: x * 32, y: y * 32})}
                                     style={{
                                         borderTop: '1px black solid',
                                         borderRight: '1px black solid',
-                                        
+                                        backgroundPosition: ` -${x * 32} px -${y * 32}`,
                                         width: 32,
                                         height: 32,
                                     }}

@@ -24,7 +24,7 @@ const StripeArea: React.FC<IPropss> = ({spriteSet, usedTile, setUsedTile}) => {
         }}
         >
             <StripeSetArea 
-                {...{classBtn_A, classBtn_B, classBtn_C, classBtn_D, spriteSet}}
+                {...{classBtn_A, classBtn_B, classBtn_C, classBtn_D, spriteSet, usedTile, setUsedTile}}
             />
             {render}
             <StripeTopicListArea /> 
