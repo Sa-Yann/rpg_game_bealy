@@ -4,15 +4,9 @@ import StripeArea from './stripe_zone/StripeArea';
 import MapArea from './map_zone/MapArea';
 import tileSetTemplate from '../tileset/tileset.png'
 
-// interface IState {
-//     x: number;
-//     y: number;
-//     id: number;
-//     v: {
-//         x: number;
-//         y: number;
-//     };
-// }[][]
+
+
+
 
 function GameWindow() {
 
@@ -20,14 +14,19 @@ function GameWindow() {
     const [spriteSet, setSpriteSet] = useState<string>(tileSetTemplate)
 
     // we also want to be able to pass on to ather component the selected tile
-    const [tiles, setTiles] = useState<any>([]) //!!!!! any to fix
+    const [tiles, setTiles] = useState<Array<Array<{x:number, y:number, id:number, v:{ x:number, y:number}}>>>([]) //!!!!! any to fix
 
     // in order to be able to use or change the size of the map
     // !!!!check what s up with the mapSize useState type
     const [mapSize, setMapSize] = useState<{width:number, height:number}>({
         width: 596,
-        height: 510,
+        height: 512,
     })
+
+    //setup active tile useState to be able to target a specific tile
+    // Setting up the default tile to be eble to pick up and move
+    //   x: 1 * 32, y: 1 * 32 => default tile choosen
+    const [usedTile, setUsedTile] = useState<{x:number, y:number}>({ x: 1 * 32, y: 1 * 32})
 
     // When the window load we want to represent the grid of tiles that represent the map area to build
     // so we use : an useeffect Hook
@@ -51,18 +50,22 @@ function GameWindow() {
             _tiles.push(row)
         }
         setTiles(_tiles)
-        console.log("🚀 ~ file: App.jsx ~ line 43 ~ useEffect ~ _tiles", _tiles)
-    }, [])
+        // console.log("🚀 ~ file: App.jsx ~ line 43 ~ useEffect ~ _tiles", _tiles)
+    }, [mapSize.height, mapSize.width])
 
 
     return (
         <div className='windowSize'>
             <StripeArea
                 spriteSet={spriteSet}
+                usedTile={usedTile}
+                setUsedTile={setUsedTile}
             />
             <MapArea 
                 tiles={tiles}
                 mapSize={mapSize}
+                usedTile={usedTile}
+                setTiles={setTiles}
             />
         </div>
     )

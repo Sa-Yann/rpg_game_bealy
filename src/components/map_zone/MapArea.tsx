@@ -6,11 +6,58 @@ interface DaProps {
         width:number
         height:number
     }
+    usedTile: {
+        x:number
+        y:number
+    }
+    setTiles: Array<Array<{x:number, y:number, id:number, v:{ x:number, y:number}}>>
 }
 
-const MapArea: React.FC<DaProps> = ({tiles, mapSize}) =>{
+// interface TileState {
+//     x: number;
+//     y: number;
+//     id: number;
+//     v: {
+//         x: number;
+//         y: number;
+//     }[]
+// }
 
 
+// '{ x: number; y: number; id: number; v: { x: number; y: number; }; }': x, y, id, v
+
+const MapArea: React.FC<DaProps> = ({tiles, mapSize, usedTile, setTiles}) =>{
+
+    function cloneMatrix(mtrx:[][]) {
+        const cloneAllMtrx = new Array(mtrx.length)
+
+        // we loop throught the stripe Canvas(mtrx) and slice and affect each Canvas row to the respective cloneStripe row
+        // we don t push to keep the aray the sam esize lenght as the stripe Canvas(mtrx)
+        for (let i=0; i< mtrx.length; i++){
+            cloneAllMtrx[i] = mtrx[i].slice(0) // cutting/grabbing the entire raw
+        }
+        return cloneAllMtrx
+    }
+    
+    
+    function dropTile(x:number, y:number):any{
+        setTiles(previousState => {
+            console.log("🚀 ~ file: Map.jsx ~ line 18 ~ dropTile ~ previousState", previousState)
+            //  cloningthe previous map matrix then act on that copy
+            // by endings the sprite tiles to the copy
+            const clone = cloneMatrix(previousState)
+            console.log("🚀 ~ file: Map.jsx ~ line 22 ~ dropTile ~ clone", clone)
+            //  the currenttile we re dropping need to become the active tile
+            const tile = {
+                ...clone[y][x], // the tile we re changing on the map
+                v: usedTile // changing  the value from the tile we wantto change to the value of the active tile
+            }
+            // doing the swap : affecting the mpa case to the choosen tile from the indexTile Map
+            clone[y][x] = tile
+            console.log("🚀 ~ file: Map.jsx ~ line 29 ~ dropTile ~ tile", tile)
+            return clone
+        })
+}
 
     return (
         <div 
@@ -25,7 +72,10 @@ const MapArea: React.FC<DaProps> = ({tiles, mapSize}) =>{
             {/* MAP AREA */}
             {
                 tiles.map((row:[], y:number) => 
-                <div style={{display: 'flex'}}>
+                <div 
+                    style={{display: 'flex'}}
+                    onClick={() => dropTile(x, y)}
+                >
                     {
                         row.map((tile:[], x:number) =>(
                         <div

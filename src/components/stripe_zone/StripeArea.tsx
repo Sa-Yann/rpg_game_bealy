@@ -6,9 +6,14 @@ import StripeTopicListArea from './StripeTopicListArea';
 
 interface IPropss {
     spriteSet: string
+    usedTile: {
+        x:number
+        y:number
+    }
+    setUsedTile:any
 }
 
-const StripeArea: React.FC<IPropss> = ({spriteSet}) => {
+const StripeArea: React.FC<IPropss> = ({spriteSet, usedTile, setUsedTile}) => {
 
     const {render,classBtn_A, classBtn_B, classBtn_C, classBtn_D} = useStripeButtonArea()
     
